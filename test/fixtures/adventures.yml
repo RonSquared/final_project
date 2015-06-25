@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  activity: MyText
+  date: 2015-06-24 20:15:14
+  duration: 9.99
+  maps: MyText
+  misc_notes: MyText
+
+two:
+  activity: MyText
+  date: 2015-06-24 20:15:14
+  duration: 9.99
+  maps: MyText
+  misc_notes: MyText

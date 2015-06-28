@@ -1,0 +1,17 @@
+<h1> Bike Adventures </h1>
+<table>
+<tbody>
+	<% @bike_adventures.each do |aspects, key| %>
+	  <tr>
+	  	<td><%= key[:name] %></td>
+	  	<td><%= aspects[:description] %></td>
+	  	<td><%= aspects[:distance] %></td>
+	  	<td><%= aspects[:moving_time] %></td>
+	  	<td><%= aspects[:start_date] %></td>
+
+	  </tr>
+	<% end %>
+
+
+</tbody>
+</table>

@@ -2,6 +2,14 @@ class AdventuresController < ApplicationController
   before_action :set_adventure, only: [:show, :edit, :update, :destroy]
 
 
+
+# GET /adventures/bike
+def bike
+  @client = Strava::Api::V3::Client.new(:access_token => "47f86ceb37abbe5fabb10ae20efeb926bcaa43f6")
+  @bike_adventures = @client.list_athlete_activities
+end
+
+
   # GET /adventures
   # GET /adventures.json
   def index

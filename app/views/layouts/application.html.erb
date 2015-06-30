@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AdventureSite</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<header>
+	<div class = "header">
+	
+
+	<h1>AdventureSite</h1>
+	
+	</div>
+</header>
+
 <body>
+
+<div class="navigation">
+	
+	<ul>
+
+		<li><%= link_to "All Adventures!", 'adventures#index' %></li>
+		<li><%= link_to "Bike Adventures!", 'bike' %></li>
+
+ 	</ul>
+
+ </div>
+
+<div class="content">
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
-
 <%= yield %>
+
+</div>
+
+
 
 </body>
 </html>

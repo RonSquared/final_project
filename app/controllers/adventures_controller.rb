@@ -5,8 +5,28 @@ class AdventuresController < ApplicationController
 
 # GET /adventures/bike
 def bike
+
   @client = Strava::Api::V3::Client.new(:access_token => "47f86ceb37abbe5fabb10ae20efeb926bcaa43f6")
-  @bike_adventures = @client.list_athlete_activities
+  @all_bike_adventures = @client.list_athlete_activities
+
+#Below I will go over this whole array to only show activities with Sharon as part of the name.
+#ie. check the "name" string to see if a substring matches "Sharon"
+
+#first, create an empty array 
+@bike_adventures = []
+
+#then iterate over my original array to find all relevant data and push it to my new array
+@all_bike_adventures.each do |aspects|
+  @my_string = aspects["name"]
+  @my_string.downcase!
+
+  if @my_string.include? "sharon"
+      @bike_adventures.push aspects 
+  end
+
+end
+
+
 end
 
 
@@ -78,6 +98,8 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adventure_params
-      params.require(:adventure).permit(:activity, :date, :duration, :maps, :misc_notes)
+      params.require(:adventure, :date, :duration).permit(:activity, :date, :duration, :maps, :misc_notes)
     end
+
+
 end

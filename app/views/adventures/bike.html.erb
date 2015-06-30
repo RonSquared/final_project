@@ -1,17 +1,27 @@
 <h1> Bike Adventures </h1>
-<table>
-<tbody>
-	<% @bike_adventures.each do |aspects, key| %>
-	  <tr>
-	  	<td><%= key[:name] %></td>
-	  	<td><%= aspects[:description] %></td>
-	  	<td><%= aspects[:distance] %></td>
-	  	<td><%= aspects[:moving_time] %></td>
-	  	<td><%= aspects[:start_date] %></td>
 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Distance</th>
+      <th>Date</th>
+      <th>Duration</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+<tbody>
+
+	<% @bike_adventures.each do |aspects| %>
+	  <tr>
+	  	<td><%= aspects["name"] %></td>
+	  	<td><%= aspects["distance"] %></td>
+	  	<td><%= aspects["start_date"] %></td>
+		<td><%= aspects["moving_time"] %></td>
 	  </tr>
 	<% end %>
 
 
 </tbody>
 </table>
+

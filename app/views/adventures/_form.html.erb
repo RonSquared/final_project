@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :activity %><br>
-    <%= select_tag 'State', options_for_select(["Hiking", "Rock Climbing", "Running", "Biking"])%>
+    <%= f.select :activity, options_for_select(["Hiking", "Rock Climbing", "Running", "Biking"])%>
   </div>
 
   <div class="field">

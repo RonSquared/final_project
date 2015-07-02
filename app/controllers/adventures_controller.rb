@@ -3,7 +3,7 @@ class AdventuresController < ApplicationController
 
 
 
-# GET /adventures/bike
+# GET /bike
 def bike
 
   @client = Strava::Api::V3::Client.new(:access_token => "47f86ceb37abbe5fabb10ae20efeb926bcaa43f6")
@@ -81,16 +81,19 @@ end
 
     @bike_adventures.each do |aspects|
 
-      @match_date = aspects["start_date"]
+      @match_date = Date.parse(aspects["start_date"])
+      @match_date = @match_date.strftime('%a, %d %b %Y')
 
-      if @match_date.eql? @adventure.date
+
+      if @match_date === @adventure.date.strftime('%a, %d %b %Y')
+          @adventure.activity = "Biking"
+          @adventure.misc_notes = aspects["name"] 
+          @adventure.duration = aspects["moving_time"]
+          @adventure.date = aspects["start_date"]
         @adventure.save
+        break
       end
-
-
-    @adventure.misc_notes = @bike_adventures["name"] 
-    @adventure.duration = @bike_adventures["moving_time"]
-    @adventure.date = @bike_adventures["start_date"]
+    end
 
 
     respond_to do |format|
@@ -136,10 +139,9 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adventure_params
-      params.require(:date, :duration).permit(:activity, :date, :duration, :maps, :misc_notes)
+      params.require(:adventure).permit(:activity, :date, :duration, :maps, :misc_notes)
     end
-
+#how to create a new date object date.new = "string that is a date" should be formatted a certain way. I might have to go into the string and exclude certain characters.
 
 end
 
-#create new colomuns in database create method on controller

@@ -77,19 +77,21 @@ end
       end
 
 
-#another set of filtering 1 set that corresponds to a loop that checks for another pattern that you match on datetime
+#Seting up a loop which will act as a filter to check against my strava data and import this information into the generic form.
 
     @bike_adventures.each do |aspects|
+
+#Here I am checking the form data against strava's data using date as a comparison point.
+#Have to get the dates in equivalent formats first!
 
       @match_date = Date.parse(aspects["start_date"])
       @match_date = @match_date.strftime('%a, %d %b %Y')
 
 
-      if @match_date === @adventure.date.strftime('%a, %d %b %Y')
-          @adventure.activity = "Biking"
+      if @adventure.activity == "Biking" && @match_date === @adventure.date.strftime('%a, %d %b %Y')
           @adventure.misc_notes = aspects["name"] 
           @adventure.duration = aspects["moving_time"]
-          @adventure.date = aspects["start_date"]
+          @adventure.date = @match_date
         @adventure.save
         break
       end
@@ -141,7 +143,6 @@ end
     def adventure_params
       params.require(:adventure).permit(:activity, :date, :duration, :maps, :misc_notes)
     end
-#how to create a new date object date.new = "string that is a date" should be formatted a certain way. I might have to go into the string and exclude certain characters.
 
 end
 

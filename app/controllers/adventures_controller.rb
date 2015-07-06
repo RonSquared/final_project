@@ -89,9 +89,17 @@ end
 
 
       if @adventure.activity == "Biking" && @match_date === @adventure.date.strftime('%a, %d %b %Y')
+          
           @adventure.misc_notes = aspects["name"] 
-          @adventure.duration = aspects["moving_time"]
           @adventure.date = @match_date
+          @adventures.distance = aspects["distance"]
+          @adventures.total_elevation_gain = aspects["total_elevation_gain"] 
+          @adventure.duration = aspects["elapsed_time"]
+          @adventures.moving_time = aspects["moving_time"]
+          @adventures.location_city = aspects["location_city"]
+          @adventures.location_state = aspects["location_state"]
+          @adventures.location_country = aspects["location_country"]
+        
         @adventure.save
         break
       end
@@ -141,7 +149,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adventure_params
-      params.require(:adventure).permit(:activity, :date, :duration, :maps, :misc_notes)
+      params.require(:adventure).permit(:activity, :date, :duration, :moving_time, :distance, :total_elevation_gain, :location_city, :location_state, :location_country)
     end
 
 end

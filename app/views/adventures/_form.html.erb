@@ -13,55 +13,58 @@
 
   <div class="field">
     <%= f.label :activity %><br>
-    <%= f.select :activity, options_for_select(["Hiking", "Rock Climbing", "Running", "Biking"])%>
+    <%= f.select :activity, options_for_select(["Biking", "Hiking", "Rock Climbing", "Running"])%>
   </div>
-  
+
+    
+
   <div class="field">
     <%= f.label :date %><br>
     <%= f.datetime_select :date %>
   </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
+  <div class="hidden_fields">
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
 
-  <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.text_field :duration %>
-  </div>
+    <div class="field">
+      <%= f.label :duration %><br>
+      <%= f.text_field :duration %>
+    </div>
 
-  <div class="field">
-    <%= f.label :moving_time %><br>
-    <%= f.text_field :moving_time %>
-  </div>
+    <div class="field">
+      <%= f.label :moving_time %><br>
+      <%= f.text_field :moving_time %>
+    </div>
 
-  <div class="field">
-    <%= f.label :total_elevation_gain %><br>
-    <%= f.text_field :total_elevation_gain %>
-  </div>
+    <div class="field">
+      <%= f.label :total_elevation_gain %><br>
+      <%= f.text_field :total_elevation_gain %>
+    </div>
 
-  <div class="field">
-    <%= f.label :location_city %><br>
-    <%= f.text_field :location_city %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :location_state %><br>
-    <%= f.text_field :location_state %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :location_country %><br>
-    <%= f.text_field :location_country %>
-  </div>
+    <div class="field">
+      <%= f.label :location_city %><br>
+      <%= f.text_field :location_city %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :location_state %><br>
+      <%= f.text_field :location_state %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :location_country %><br>
+      <%= f.text_field :location_country %>
+    </div>
 
 
-  <div class="field">
-    <%= f.label :adventure_notes %><br>
-    <%= f.text_area :misc_notes %>
+    <div class="field">
+      <%= f.label :adventure_notes %><br>
+      <%= f.text_area :misc_notes %>
+    </div>
   </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>

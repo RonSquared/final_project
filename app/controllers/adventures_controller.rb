@@ -149,7 +149,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adventure_params
-      params.require(:adventure).permit(:activity, :title, :date, :duration, :moving_time, :distance, :total_elevation_gain, :location_city, :location_state, :location_country)
+      params.require(:adventure).permit(:activity, :title, :date, :duration, :moving_time, :distance, :total_elevation_gain, :location_city, :location_state, :location_country, :misc_notes)
     end
 
 end

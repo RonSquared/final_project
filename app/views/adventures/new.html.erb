@@ -3,3 +3,17 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', adventures_path %>
+
+
+
+<script>
+  $('.hidden_fields').hide();
+  $('#adventure_activity').change(function(){
+    if($(this).val() == "Biking"){
+      $('.hidden_fields').hide();
+    }else{
+      $('.hidden_fields').show();
+    }
+    
+  });
+</script>

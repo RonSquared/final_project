@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706224959) do
+ActiveRecord::Schema.define(version: 20150706234158) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -35,18 +35,17 @@ ActiveRecord::Schema.define(version: 20150706224959) do
     t.text     "activity"
     t.datetime "date"
     t.decimal  "duration"
-    t.text     "maps"
     t.text     "misc_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
     t.string   "distance"
-    t.integer  "moving_time"
-    t.integer  "total_elevation_gain"
-    t.integer  "elapsed_time"
+    t.decimal  "moving_time"
+    t.decimal  "total_elevation_gain"
     t.string   "location_city"
     t.string   "location_state"
     t.string   "location_country"
+    t.string   "title"
   end
 
   create_table "users", force: true do |t|
